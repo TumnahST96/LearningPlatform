@@ -1,0 +1,8 @@
+.header {
+	text-align: center;
+}
+
+h1,h3 {
+	color: green;
+	font-style: italic;
+}
