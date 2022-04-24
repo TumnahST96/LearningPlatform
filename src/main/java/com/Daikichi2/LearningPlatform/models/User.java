@@ -41,8 +41,60 @@ public class User {
     private String confirm;
     
     private String role;
+    
+    private int power;
+    
+    @NotEmpty(message="Subject is required!")
+    private String subject;
+    
+    private String education;
+    
+    private String major;
+    
+	public User() {}
           
-    public User() {}
+    
+	public String getMajor() {
+		return major;
+	}
+
+
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public int getPower() {
+		return power;
+	}
+
+	public void setPower(int power) {
+		this.power = power;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getEducation() {
+		return education;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
 
 	public String getFirstName() {
 		return firstName;
