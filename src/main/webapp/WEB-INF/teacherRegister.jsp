@@ -53,7 +53,7 @@
 					<form:errors path="education" class="text-danger"></form:errors>
 					<form:input type="text" class="form-control" path="education"></form:input>
 							
-					<form:label class="col-sm-3 col-form-label" path="major">What college did you study at? </form:label>
+					<form:label class="col-sm-3 col-form-label" path="major">What was your major? </form:label>
 					<form:errors path="major" class="text-danger"></form:errors>
 					<form:input type="text" class="form-control" path="major"></form:input>
 										

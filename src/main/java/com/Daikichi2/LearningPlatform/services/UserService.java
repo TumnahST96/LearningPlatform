@@ -18,6 +18,7 @@ import com.Daikichi2.LearningPlatform.repositories.UserRepository;
 public class UserService {	
 	@Autowired
 	private UserRepository userRepository;
+	private User user;
 
 	public UserService(UserRepository userRepository) {
 		this.userRepository = userRepository;
@@ -37,6 +38,7 @@ public class UserService {
 	public void Create(User user)
 	{
 		userRepository.save(user);
+		
 	}
 
 	public User FindByEmail(String email)

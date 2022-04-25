@@ -48,7 +48,7 @@ public class UserController {
 		}
 		User errors = userService.register(user, result);
 		if(errors == null) return "teacherRegister";
-		return "redirect:/courses";		
+		return "redirect:/singleTeacher";		
 	}
 	
 	@GetMapping("/student_new")
@@ -71,7 +71,8 @@ public class UserController {
 	//everything for courses 
 	@GetMapping("/courses")
 	public String courses (Model model) {
-	
+		// user in session so query me
+		//then add to jsp
 		model.addAttribute("allCourses", courseServe.allCourses());
 		return "courses";
 	}
