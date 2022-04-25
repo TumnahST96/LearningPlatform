@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.Daikichi2.LearningPlatform.models.User;
@@ -74,6 +75,16 @@ public class UserController {
 		model.addAttribute("allCourses", courseServe.allCourses());
 		return "courses";
 	}
+	
+	
+	@GetMapping("/singleCourse/{id}")
+	public String SingleCourse (@PathVariable("id")Long id,  Model model) {
+	
+		model.addAttribute("course", courseServe.findCourse(id));
+		return "singleCourse";
+	}
+	
+	
 	
 	
 	//=======================================//
