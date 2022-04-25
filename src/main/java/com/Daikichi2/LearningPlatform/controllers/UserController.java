@@ -12,15 +12,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.Daikichi2.LearningPlatform.models.User;
+import com.Daikichi2.LearningPlatform.services.CourseService;
 import com.Daikichi2.LearningPlatform.services.UserService;
 
 @Controller
 public class UserController {
 	@Autowired
 	public UserService userService;
+	
+	public CourseService courseServe;
 
-	public UserController(UserService userService) {
+	public UserController(UserService userService, CourseService courseServe) {
 		this.userService = userService;
+		this.courseServe = courseServe;
 	}
 	
 	@GetMapping("/consider")
@@ -61,5 +65,17 @@ public class UserController {
 		if(errors == null) return "studentRegister";
 		return "redirect:/courses";		
 	}
+	
+	
+	//everything for courses 
+	@GetMapping("/courses")
+	public String courses (Model model) {
+	
+		model.addAttribute("allCourses", courseServe.allCourses());
+		return "courses";
+	}
+	
+	
+	//=======================================//
 	
 }

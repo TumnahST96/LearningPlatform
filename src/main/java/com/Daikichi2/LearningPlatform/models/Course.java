@@ -35,6 +35,23 @@ public class Course {
     public Course() {};
     
     
+    
+
+	public Course(
+			@NotEmpty(message = "Title is required!") @Size(min = 3, max = 30, message = "Title must be between 3 and 30 characters") String title,
+			Integer credit, Double price, String description, String imgURL, Date startDate, boolean required) {
+		super();
+		this.title = title;
+		this.credit = credit;
+		this.price = price;
+		this.description = description;
+		this.imgURL = imgURL;
+		this.startDate = startDate;
+		this.required = required;
+	}
+
+
+
 
 	public Long getId() {
 		return id;
@@ -83,6 +100,35 @@ public class Course {
 	public void setRequired(boolean required) {
 		this.required = required;
 	}
+
+
+
+
+	public Integer getCredit() {
+		return credit;
+	}
+
+
+
+
+	public void setCredit(Integer credit) {
+		this.credit = credit;
+	}
+
+
+
+
+	public Double getPrice() {
+		return price;
+	}
+
+
+
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
     
+	
     
 }

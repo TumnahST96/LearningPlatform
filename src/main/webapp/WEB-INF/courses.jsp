@@ -28,7 +28,7 @@
 	<div>
 		<h1>All Courses</h1>
 		
-		<h3>Search Source:</h3>
+		<p>Search Source:</p>
 		<br>
 		
 		
@@ -44,6 +44,7 @@
 						<th class = "align-middle">Credit</th>
 						<th class = "align-middle">Cost</th>
 						<th class = "align-middle">Current Students</th>
+						<th class = "align-middle">Required</th>
 						<th class = "align-middle">Action</th>
 					</tr>
 				</thead>
@@ -58,6 +59,9 @@
 							<td><p> <c:out value = "${i.credit }"></c:out></p></td>
 							<td><p> <c:out value = "${i.price }"></c:out></p></td>
 							<td><p> <c:out value = "Students"></c:out></p></td>
+							
+							<td><p> <c:out value = "${i.required }"></c:out></p></td>
+							
 							<td>
 								<a class = "btn btn-success" href="/addCourse/${i.id}">Join</a> 
 							</td>
