@@ -9,9 +9,8 @@ import com.Daikichi2.models.Lecture;
 public class TheController {
 	
 	@GetMapping("/consider")
-	public String NewSong(Model model) {
-		model.addAttribute("lecture", new Lecture());
-		model.addAttribute("songs",songServe.RealAll());
+	public String Role() {
+		if()
 		return "NewSong";
 	}
 }
