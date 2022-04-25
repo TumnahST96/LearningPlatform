@@ -30,15 +30,12 @@
 					<form:errors path="description" class="text-danger"></form:errors>
 					<form:input type="text" class="form-control" path="description"></form:input>	
 					
-					<form:label class="col-sm-2 col-form-label" path="origin">Origin: </form:label>
-					<form:errors path="origin" class="text-danger"></form:errors>
-					<form:input type="text" class="form-control" path="origin"></form:input>		
+					<form:label class="col-sm-2 col-form-label" path="startDate">Start at: </form:label>
+					<form:errors path="startdate" class="text-danger"></form:errors>
+					<form:input type="date" class="form-control" path="startDate"></form:input>		
 					
-					<form:label class="col-sm-2 col-form-label" path="meaning">Meaning: </form:label>
-					<form:errors path="meaning" class="text-danger"></form:errors>
-					<form:textarea type="text" class="form-control" path="meaning"></form:textarea>
 					
-					<a href="/home" class="btn btn-info mt-2">Cancel</a>				
+					<a href="/" class="btn btn-info mt-2">Cancel</a>				
 					<input type="submit" class="btn btn-success ms-2 mt-2" value="Submit" />
 				
 				</form:form>		
