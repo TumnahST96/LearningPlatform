@@ -22,17 +22,13 @@
 				<h2>Add a course!</h2>
 				<form:form action="/add_course" method="POST" modelAttribute="course">
 							
-					<form:label class="col-sm-2 col-form-label" path="babyName">New Name: </form:label>
-					<form:errors path="babyName"  class="text-danger"></form:errors>
-					<form:input type="text" class="form-control" path="babyName"></form:input>		
+					<form:label class="col-sm-2 col-form-label" path="title">Course Title: </form:label>
+					<form:errors path="title"  class="text-danger"></form:errors>
+					<form:input type="text" class="form-control" path="title"></form:input>		
 					
-					<form:label class="col-sm-2 col-form-label" path="gender">Typical Gender: </form:label>
-					<form:errors path="gender" class="text-danger"></form:errors>
-					<form:select class="form-control" path="gender">
-						<form:option value="male">Male</form:option>
-						<form:option value="female">Female</form:option>
-						<form:option value="neutral">Neutral</form:option>
-					</form:select>	
+					<form:label class="col-sm-2 col-form-label" path="description">Description: </form:label>
+					<form:errors path="description" class="text-danger"></form:errors>
+					<form:input type="text" class="form-control" path="description"></form:input>	
 					
 					<form:label class="col-sm-2 col-form-label" path="origin">Origin: </form:label>
 					<form:errors path="origin" class="text-danger"></form:errors>
