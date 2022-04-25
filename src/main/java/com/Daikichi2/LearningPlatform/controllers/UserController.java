@@ -28,12 +28,6 @@ public class UserController {
 		this.courseServe = courseServe;
 	}
 	
-	@GetMapping("/consider")
-	public String consider_page(Model model) {
-		model.addAttribute("user", new User());
-		
-		return "consideration";
-	}
 	
 	@GetMapping("/teacher_new")
 	public String teacher_new(@ModelAttribute("teacher") User user) {
@@ -48,8 +42,39 @@ public class UserController {
 		}
 		User errors = userService.register(user, result);
 		if(errors == null) return "teacherRegister";
-		return "redirect:/singleTeacher";		
+		return "redirect:/";	
+		
 	}
+	
+	
+//	@GetMapping("/singleTeacher")
+//	public String singleTeacher(@ModelAttribute("teacher") User user) {
+//		user.setRole("teacher");
+//		return "teacherRegister";
+//	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//student
 	
 	@GetMapping("/student_new")
 	public String student_new(@ModelAttribute("student") User user) {
