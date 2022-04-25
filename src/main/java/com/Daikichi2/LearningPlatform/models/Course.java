@@ -21,6 +21,9 @@ public class Course {
     @Size(min=3, max=30, message="Title must be between 3 and 30 characters")
     private String title;
     
+    private Integer credit;
+    private Double price;
+    
     private String description;
     
     private String imgURL;
@@ -30,6 +33,8 @@ public class Course {
     private boolean required;
     
     public Course() {};
+    
+    
 
 	public Long getId() {
 		return id;
