@@ -3,11 +3,13 @@ package com.Daikichi2.LearningPlatform.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.Daikichi2.LearningPlatform.models.Course;
 import com.Daikichi2.LearningPlatform.repositories.CoursesRepository;
 
 
-
+@Service
 public class CourseService {
 	
 	private final CoursesRepository courseRepo;
