@@ -31,7 +31,7 @@
 					<form:input type="text" class="form-control" path="description"></form:input>	
 					
 					<form:label class="col-sm-2 col-form-label" path="startDate">Start at: </form:label>
-					<form:errors path="startdate" class="text-danger"></form:errors>
+					<form:errors path="startDate" class="text-danger"></form:errors>
 					<form:input type="date" class="form-control" path="startDate"></form:input>		
 					
 					
