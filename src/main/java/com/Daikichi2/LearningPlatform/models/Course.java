@@ -21,7 +21,10 @@ public class Course {
     @Size(min=3, max=30, message="Title must be between 3 and 30 characters")
     private String title;
     
+    private String instructor;
+    
     private Integer credit;
+    
     private Double price;
     
     private String description;
@@ -32,16 +35,19 @@ public class Course {
         
     private boolean required;
     
+
+
+
+
     public Course() {};
-    
-    
     
 
 	public Course(
-			@NotEmpty(message = "Title is required!") @Size(min = 3, max = 30, message = "Title must be between 3 and 30 characters") String title,
+			@NotEmpty(message = "Title is required!") @Size(min = 3, max = 30, message = "Title must be between 3 and 30 characters") String title, String instructor,
 			Integer credit, Double price, String description, String imgURL, Date startDate, boolean required) {
 		super();
 		this.title = title;
+		this.instructor = instructor;
 		this.credit = credit;
 		this.price = price;
 		this.description = description;
@@ -127,6 +133,16 @@ public class Course {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+
+	public String getInstructor() {
+		return instructor;
+	}
+
+
+	public void setInstructor(String instructor) {
+		this.instructor = instructor;
 	}
     
 	
