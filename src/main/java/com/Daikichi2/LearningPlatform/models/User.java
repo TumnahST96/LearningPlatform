@@ -1,10 +1,13 @@
 package com.Daikichi2.LearningPlatform.models;
 
-import javax.persistence.Entity;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
@@ -41,15 +44,19 @@ public class User {
     private String confirm;
     
     private String role;
-    
-  
-    
+        
     @NotEmpty(message="Subject is required!")
     private String subject;
     
     private String education;
     
     private String major;
+        
+  //creating one to many relationship with candy class
+  	@OneToMany(mappedBy="teacher", fetch = FetchType.LAZY)
+  	private List<Course> courses;
+
+  	
     
 	public User() {}
          
@@ -75,8 +82,16 @@ public class User {
 		this.major = major;
 	}
 
+	
 
 
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
 
 	public String getMajor() {
 		return major;

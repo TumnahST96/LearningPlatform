@@ -43,10 +43,11 @@ public class CourseService {
 		
 		//delete a Course from rpeo
 		
-		public void CourseMan(Long id) {
-			
-			courseRepo.deleteById(id);
-		}
+		public void delete(Long id) {
+					
+				courseRepo.deleteById(id);
+				}
+
 		
 		
 		//update one Course

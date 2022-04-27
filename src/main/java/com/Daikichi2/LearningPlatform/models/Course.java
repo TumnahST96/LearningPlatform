@@ -3,12 +3,18 @@ package com.Daikichi2.LearningPlatform.models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="courses")
@@ -28,18 +34,25 @@ public class Course {
     
     private String imgURL;
     
+    @Future
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
         
-    private boolean required;
+    private String required;
     
-    public Course() {};
+  //creating many to one relationship with owner class
+  	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User teacher;
+
     
+    public Course() {}; 
     
     
 
 	public Course(
 			@NotEmpty(message = "Title is required!") @Size(min = 3, max = 30, message = "Title must be between 3 and 30 characters") String title,
-			Integer credit, Double price, String description, String imgURL, Date startDate, boolean required) {
+			Integer credit, Double price, String description, String imgURL, Date startDate, String required) {
 		super();
 		this.title = title;
 		this.credit = credit;
@@ -50,6 +63,20 @@ public class Course {
 		this.required = required;
 	}
 
+
+	
+
+
+
+	public User getTeacher() {
+		return teacher;
+	}
+
+
+
+	public void setTeacher(User teacher) {
+		this.teacher = teacher;
+	}
 
 
 
@@ -93,14 +120,20 @@ public class Course {
 		this.startDate = startDate;
 	}
 
-	public boolean isRequired() {
+
+
+
+
+
+	public String getRequired() {
 		return required;
 	}
 
-	public void setRequired(boolean required) {
+
+
+	public void setRequired(String required) {
 		this.required = required;
 	}
-
 
 
 

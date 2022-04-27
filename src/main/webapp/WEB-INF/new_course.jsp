@@ -27,16 +27,41 @@
 					<form:input type="text" class="form-control" path="title"></form:input>		
 					
 					<form:label class="col-sm-2 col-form-label" path="description">Description: </form:label>
-					<form:errors path="description" class="text-danger"></form:errors>
-					<form:input type="text" class="form-control" path="description"></form:input>	
+					<form:errors path="credit" class="text-danger"></form:errors>
+					<form:input type="text" class="form-control" path="description"></form:input>
+					
+					
+					
+					<form:label class="col-sm-2 col-form-label" path="credit">Credit: </form:label>
+					<form:errors path="credit" class="text-danger"></form:errors>
+					<form:input type="number" class="form-control" path="credit"></form:input>
+					
+					<form:label class="col-sm-2 col-form-label" path="price">Price: </form:label>
+					<form:errors path="credit" class="text-danger"></form:errors>
+					<form:input type="number" class="form-control" path="price"></form:input>
+					
+					<form:label class="col-sm-2 col-form-label" path="required">required: </form:label>
+					<form:errors path="credit" class="text-danger"></form:errors>
+					<form:input type="text" class="form-control" path="required"></form:input>
+						
 					
 					<form:label class="col-sm-2 col-form-label" path="startDate">Start at: </form:label>
 					<form:errors path="startDate" class="text-danger"></form:errors>
-					<form:input type="date" class="form-control" path="startDate"></form:input>		
+					<form:input type="date" class="form-control" path="startDate"></form:input>	
 					
+					<form:label class="col-sm-2 col-form-label" path="teacher">Select Professor:</form:label>				
+					<form:select path = "teacher">
+	    				<c:forEach var = "i" items = "${allTeachers}">
+	    				<form:option value="${i.id}">${i.firstName} ${i.lastName}</form:option>
+	    				</c:forEach>	    	
+	    			</form:select>
 					
-					<a href="/" class="btn btn-info mt-2">Cancel</a>				
-					<input type="submit" class="btn btn-success ms-2 mt-2" value="Submit" />
+					<div>
+						<a href="/" class="btn btn-info mt-2">Cancel</a>
+									
+						<input type="submit" class="btn btn-success ms-2 mt-2" value="Submit" />
+					
+					</div>
 				
 				</form:form>		
 			</div>		

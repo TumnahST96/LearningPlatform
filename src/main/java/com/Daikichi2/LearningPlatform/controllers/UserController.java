@@ -34,21 +34,21 @@ public class UserController {
 	
 	@GetMapping("/teacher_new")
 	public String teacher_new(@ModelAttribute("teacher") User user) {
-		user.setRole("teacher");
 		return "teacherRegister";
 	}
 	
 	@PostMapping("/teacher_save")
 	public String teacher_save(@Valid @ModelAttribute("teacher") User user, BindingResult result) {
+		user.setRole("teacher");
 		if(result.hasErrors()) {
+			user.setRole("");
 			return "teacherRegister";
 		}
-		User errors = userService.register(user, result);
-		if(errors == null) return "teacherRegister";
-		return "redirect:/";	
 		
+		User errors = userService.register(user, result);
+		if(errors == null) return "teacherRegister";		
+		return "redirect:/";			
 	}
-	
 	
 	@PostMapping("/login")
 	public String login(
@@ -67,14 +67,7 @@ public class UserController {
 		if(db_user == null) return "index";
 		return "redirect:/dashboard";
 	}
-	
-	@GetMapping("/dashboard")
-	public String dashboard(Model model)
-	{
-		model.addAttribute("allCourses", courseServe.allCourses());
-		return "dashboard";
-	}
-			
+				
 	@GetMapping("/logout")
 	public String logout(HttpSession session)
 	{
@@ -87,14 +80,6 @@ public class UserController {
 		redirectAttributes.addFlashAttribute("errorFlash", "You must log in!");
 		return "redirect:/";
 	}
-	
-	
-//	@GetMapping("/singleTeacher")
-//	public String singleTeacher(@ModelAttribute("teacher") User user) {
-//		user.setRole("teacher");
-//		return "teacherRegister";
-//	}
-	
 	
 	
 	
