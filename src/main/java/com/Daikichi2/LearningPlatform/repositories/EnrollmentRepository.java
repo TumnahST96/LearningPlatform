@@ -6,12 +6,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.Daikichi2.LearningPlatform.models.Course;
+import com.Daikichi2.LearningPlatform.models.Enrollment;
 import com.Daikichi2.LearningPlatform.models.User;
 
-@Repository
-public interface CoursesRepository extends CrudRepository<Course, Long>{
-	
-	List<Course>findAll();
-	List<Course> findByTeacher(User teacher);
 
+@Repository
+public interface EnrollmentRepository extends CrudRepository<Enrollment, Long>{
+	
+	List<Enrollment>findAll();
+	List<Enrollment> findByStudentId(Long student_id);
+	List<Enrollment> findByEnrolledCourseId(Long course_id);
 }

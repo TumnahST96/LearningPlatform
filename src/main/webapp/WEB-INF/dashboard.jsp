@@ -22,13 +22,12 @@
         <h1>Welcome back!</h1>
         <br>
         <a href = "/dashboard">Home</a>
-        <a href = "/myCourses">In Progress</a>
+        <a href = "/my_courses">In Progress</a>
         <a href = "/CourseComplete">Completed</a>
-
-
-        <a href = "/logout">Logout</a>
-
-
+		
+		<a href="/my_information">My information</a>
+        <a href = "/logout">Logout</a>	
+        
 
         <div >
 
@@ -49,6 +48,9 @@
 
 
     </div>
+        <div>
+    		<a  href="/courses" class="btn btn-primary mt-5" >Show me All courses!</a>
+        </div>
 
     </div> <!-- End of Container -->
 </body>

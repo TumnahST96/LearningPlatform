@@ -1,6 +1,7 @@
 package com.Daikichi2.LearningPlatform.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
@@ -40,11 +43,19 @@ public class Course {
         
     private String required;
     
-  //creating many to one relationship with owner class
+  //creating many to one relationship between teachers and courses; 
   	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User teacher;
-
+  	
+  	//creating many to many relationship between students and courses;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "enrollments", 
+            joinColumns = @JoinColumn(name = "course_id"), 
+            inverseJoinColumns = @JoinColumn(name = "student_id")
+        )
+        private List<User> students;
     
     public Course() {}; 
     
@@ -65,6 +76,18 @@ public class Course {
 
 
 	
+
+
+
+	public List<User> getStudents() {
+		return students;
+	}
+
+
+
+	public void setStudents(List<User> students) {
+		this.students = students;
+	}
 
 
 

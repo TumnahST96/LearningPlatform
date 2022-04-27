@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.Daikichi2.LearningPlatform.models.Course;
+import com.Daikichi2.LearningPlatform.models.User;
 import com.Daikichi2.LearningPlatform.repositories.CoursesRepository;
 
 
@@ -41,7 +42,7 @@ public class CourseService {
 		}
 		
 		
-		//delete a Course from rpeo
+		//delete a Course
 		
 		public void delete(Long id) {
 					
@@ -54,5 +55,10 @@ public class CourseService {
 		public Course updateCourse(Course course) {
 			return courseRepo.save(course);
 		}	
+		
+		//find all of one teacher's courses
+		public List<Course> findTechersCourses(User teacher) {
+			return courseRepo.findByTeacher(teacher);			
+		}
 
 };

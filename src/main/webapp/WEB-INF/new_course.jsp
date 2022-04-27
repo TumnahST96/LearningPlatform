@@ -57,7 +57,7 @@
 	    			</form:select>
 					
 					<div>
-						<a href="/" class="btn btn-info mt-2">Cancel</a>
+						<a href="/dashboard" class="btn btn-info mt-2">Cancel</a>
 									
 						<input type="submit" class="btn btn-success ms-2 mt-2" value="Submit" />
 					
