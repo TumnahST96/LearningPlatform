@@ -19,10 +19,11 @@
 <body>
 	<div class="container-sm">
 		<div class="header">
-			<h1>Teacher information</h1>
+			<h1>Teacher/Student information</h1>
 		</div>
-	
-		<div class="">
+		
+		<a href="/dashboard">Back to dashBoard</a>
+		<div class="mt-3">
 			<div>
 				<div>img here</div>
 				<p>Professor ${user.firstName } ${user.lastName }</p>

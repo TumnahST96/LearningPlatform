@@ -1,5 +1,7 @@
 package com.Daikichi2.LearningPlatform.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -12,7 +14,6 @@ import org.springframework.validation.BindingResult;
 import com.Daikichi2.LearningPlatform.models.LoginUser;
 import com.Daikichi2.LearningPlatform.models.User;
 import com.Daikichi2.LearningPlatform.repositories.UserRepository;
-
 
 @Service
 public class UserService {	
@@ -51,6 +52,18 @@ public class UserService {
 		Optional<User> user = userRepository.findById(id);
 		return user.isPresent() ? user.get() : null;
 		}
+		
+	public ArrayList<User> ReadAll()
+	{
+		ArrayList<User> users=(ArrayList<User>)userRepository.findAll();
+		return users;
+	}
+	
+	public List<User> allUsers(String role) {
+		
+		return userRepository.findByRole(role);
+	}
+
 	
 	public User register(User user, BindingResult result) {
 		User existing_user = userRepository.findByEmail(user.getEmail());
@@ -88,4 +101,11 @@ public class UserService {
 		session.setAttribute("user", db_user);
 		return db_user;		
 	}	
+	
+	
+//	public ArrayList<User> findAllTeachers() {
+//		ArrayList<User> teachers = new ArrayList<User>();
+//		userRepository.findAll();
+//		
+//	}
 }

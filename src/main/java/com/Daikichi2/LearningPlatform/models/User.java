@@ -1,15 +1,22 @@
 package com.Daikichi2.LearningPlatform.models;
 
-import javax.persistence.Entity;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
 
 
 @Entity
@@ -41,21 +48,29 @@ public class User {
     private String confirm;
     
     private String role;
-    
-  
-    
+        
     @NotEmpty(message="Subject is required!")
     private String subject;
     
     private String education;
     
     private String major;
-    
-	public User() {}
-         
+        
+    //creating one to many relationship between teachers and courses;
+  	@OneToMany(mappedBy="teacher", fetch = FetchType.LAZY)
+  	private List<Course> courses;
+  	
+  	//creating many to many relationship between students and courses;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "enrollments", 
+            joinColumns = @JoinColumn(name = "student_id"), 
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+        )
+        private List<Course> enrolledCourses;
+
+	public User() {}       
 	
-	
-    
 	public User(
 			@NotEmpty(message = "First name is required!") @Size(min = 3, max = 30, message = "First name must be between 3 and 30 characters") String firstName,
 			@NotEmpty(message = "Last name is required!") @Size(min = 3, max = 30, message = "Last name must be between 3 and 30 characters") String lastName,
@@ -75,8 +90,24 @@ public class User {
 		this.major = major;
 	}
 
+	
 
+	
+	public List<Course> getEnrolledCourses() {
+		return enrolledCourses;
+	}
 
+	public void setEnrolledCourses(List<Course> enrolledCourses) {
+		this.enrolledCourses = enrolledCourses;
+	}
+
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
 
 	public String getMajor() {
 		return major;

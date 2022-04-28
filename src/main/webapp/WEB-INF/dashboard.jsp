@@ -27,6 +27,7 @@
 <body>
     
 
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/dashboard">
@@ -135,24 +136,8 @@
 
 
 
-    <!-- <div class="card">
-		<div class="card__inner">
-			<div class="card__face card__face--front">
-				<h2>Computer Science</h2>
-			</div>
-			<div class="card__face card__face--back">
-				<div class="card__content">
-					<div class="card__header">
-						<img src="" alt="" class="compSci" />
-						<h2>requried to take course</h2>
-					</div>
-					<div class="card__body">
-						<p>this is all about the computer science course. are you interested?</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
+
+   
 
 
 
@@ -175,6 +160,9 @@
             </tbody>
         </table>
     </div>
+        <div>
+    		<a  href="/courses" class="btn btn-primary mt-5" >Show me All courses!</a>
+        </div>
 
 
 </div> <!-- End of Container -->
