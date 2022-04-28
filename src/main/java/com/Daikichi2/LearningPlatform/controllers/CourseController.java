@@ -39,18 +39,36 @@ public class CourseController {
 	}
 	
 	@GetMapping("/dashboard")
-	public String dashboard(Model model)
+	public String dashboard(Model model, HttpSession session)
 	{
 		model.addAttribute("allCourses", courseService.allCourses());
 		return "dashboard";
 	}
 	
 	@GetMapping("/courses")
-	public String courses (Model model) {
+	public String courses (Model model, HttpSession session) {
 		// user in session so query me
 		//then add to jsp
 		model.addAttribute("allCourses", courseService.allCourses());
 		return "courses";
+	}
+	
+	@GetMapping("/my_courses")
+	public String my_courses(Model model, HttpSession session) {
+		
+		User user = (User) session.getAttribute("user");
+		
+//		//System.out.println(user.getCourses());
+		if(user.getRole().equals("teacher")) {
+		List<Course> myCourses = (List<Course>)user.getCourses();
+		System.out.println("if");
+		model.addAttribute("myCourses", myCourses);
+	}
+//		if(user.getRole() == "student") {
+//			List<Course> myCourses =(List<Course>) user.getEnrolledCourses();
+//			model.addAttribute("myCourses", myCourses);
+//		}
+		return "myCourses";
 	}
 	
 	//Route to show one course
@@ -80,21 +98,7 @@ public class CourseController {
 		}				
 		return "redirect:/dashboard";
 	}
-				
-	@GetMapping("/my_courses")
-	public String my_courses(Model model, HttpSession session) {
-		User user = (User) session.getAttribute("user");
-		if(user.getRole() == "teacher") {
-		List<Course> myCourses = (List<Course>)user.getCourses();
-		model.addAttribute("myCourses", myCourses);
-		}
-		if(user.getRole() == "student") {
-			List<Course> myCourses =(List<Course>) user.getEnrolledCourses();
-			model.addAttribute("myCourses", myCourses);
-		}
-		return "myCourses";
-	}
-	
+					
 	//render the update course form
 	
 	@GetMapping("/updateCourse/{id}")

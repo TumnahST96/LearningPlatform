@@ -12,6 +12,6 @@ import com.Daikichi2.LearningPlatform.models.User;
 public interface CoursesRepository extends CrudRepository<Course, Long>{
 	
 	List<Course>findAll();
-	List<Course> findByTeacher(User teacher);
+	List<Course> findAllByTeacherId(Long id);
 
 }
