@@ -42,7 +42,7 @@ public class User {
     
     private String role;
     
-    private int power;
+  
     
     @NotEmpty(message="Subject is required!")
     private String subject;
@@ -52,8 +52,32 @@ public class User {
     private String major;
     
 	public User() {}
-          
+         
+	
+	
     
+	public User(
+			@NotEmpty(message = "First name is required!") @Size(min = 3, max = 30, message = "First name must be between 3 and 30 characters") String firstName,
+			@NotEmpty(message = "Last name is required!") @Size(min = 3, max = 30, message = "Last name must be between 3 and 30 characters") String lastName,
+			@NotEmpty(message = "Email is required!") @Email(message = "Please enter a valid email!") String email,
+			@NotEmpty(message = "Password is required!") @Size(min = 8, max = 128, message = "Password must be between 8 and 128 characters") String password,
+			@NotEmpty(message = "Confirm Password is required!") @Size(min = 8, max = 128, message = "Confirm Password must be between 8 and 128 characters") String confirm,
+			String role, @NotEmpty(message = "Subject is required!") String subject, String education, String major) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.confirm = confirm;
+		this.role = role;
+		this.subject = subject;
+		this.education = education;
+		this.major = major;
+	}
+
+
+
+
 	public String getMajor() {
 		return major;
 	}
@@ -72,13 +96,7 @@ public class User {
 		this.role = role;
 	}
 
-	public int getPower() {
-		return power;
-	}
-
-	public void setPower(int power) {
-		this.power = power;
-	}
+	
 
 	public String getSubject() {
 		return subject;
