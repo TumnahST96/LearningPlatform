@@ -65,8 +65,8 @@ public class CourseController {
 		model.addAttribute("myCourses", myCourses);
 	}
 		if(user.getRole().equals("student")) {
-			List<Course> myCourses =(List<Course>) user.getEnrolledCourses();
-			model.addAttribute("myCourses", myCourses);
+			List<Enrollment> myEnrollments =(List<Enrollment>)enrollmentService.findByStudent(user);
+			model.addAttribute("myEnrollments", myEnrollments);
 		}
 		return "myCourses";
 	}

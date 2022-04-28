@@ -18,6 +18,19 @@
 	<script type="text/javascript" src="/js/main.js"></script>
 </head>
 <body>
+	<div>
+		<nav class="navbar navbar-dark bg-dark">
+            <h3>Welcome to LearningPlatform!</h3>
+            <div>
+                <form class="form-inline d-flex">
+    		 		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    				<button class="btn btn-outline-success my-2 ms-2 my-sm-0" type="submit">Search</button>
+  				</form>            
+            </div>
+
+        </nav>	
+	</div>
+
     <div class="container"> <!-- Beginning of Container -->
         
 	<div>

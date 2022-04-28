@@ -24,7 +24,8 @@
 		
 		<a href="/dashboard">Back to dashBoard</a>
 		
-		<div >
+		<c:if test="${user.role == 'teacher'}">	
+			<div >
 			<table class = "table table-dark table-striped table-hover">
 				<thead>
 					<tr>
@@ -53,7 +54,43 @@
 					</c:forEach>
 				</tbody>
 			</table>
-		</div>
+		</div>		
+		</c:if>
+		
+		<c:if test="${user.role == 'student'}">	
+			<div >
+			<table class = "table table-dark table-striped table-hover">
+				<thead>
+					<tr>
+						<th class = "align-middle">Course Title:</th>
+						<th class = "align-middle">Instructor</th>
+						<th class = "align-middle">Credit</th>
+						<th class = "align-middle">Cost</th>
+						<th class = "align-middle">Required</th>
+						<th class = "align-middle">Action</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<c:forEach var = "i" items = "${myEnrollments}">
+						<tr>
+							<td><p> <a href="/oneCourse/${i.enrolledCourse.id}">
+							<c:out value = "${i.enrolledCourse.title}"></c:out></a>
+							</p></td>
+							<td><p> <c:out value = "${i.enrolledCourse.teacher.firstName}"></c:out></p></td>
+							<td><p> <c:out value = "${i.enrolledCourse.credit }"></c:out></p></td>
+							<td><p> <c:out value = "${i.enrolledCourse.price }"></c:out></p></td>					
+							<td><p> <c:out value = "${i.enrolledCourse.required }"></c:out></p></td>							
+							<td>
+							</td>							
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>		
+		</c:if>
+		
+		
 		
 		<c:if test="${user.role == 'teacher'}">	<a href="/new_course" class="btn btn-success mt-2">Add a new course</a></c:if>
 

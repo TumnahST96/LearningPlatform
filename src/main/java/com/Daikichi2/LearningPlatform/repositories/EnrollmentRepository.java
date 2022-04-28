@@ -14,6 +14,6 @@ import com.Daikichi2.LearningPlatform.models.User;
 public interface EnrollmentRepository extends CrudRepository<Enrollment, Long>{
 	
 	List<Enrollment>findAll();
-	List<Enrollment> findByStudentId(Long student_id);
+	List<Enrollment> findByStudent(User student);
 	List<Enrollment> findByEnrolledCourseId(Long course_id);
 }

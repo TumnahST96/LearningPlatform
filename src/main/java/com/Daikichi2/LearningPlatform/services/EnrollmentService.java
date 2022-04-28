@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Daikichi2.LearningPlatform.models.Course;
 import com.Daikichi2.LearningPlatform.models.Enrollment;
+import com.Daikichi2.LearningPlatform.models.User;
 import com.Daikichi2.LearningPlatform.repositories.EnrollmentRepository;
 
 
@@ -42,8 +42,7 @@ public class EnrollmentService {
 		
 		
 		//delete a Enrollment 		
-		public void delete(Long id) {
-					
+		public void delete(Long id) {		
 			enrollmentRepo.deleteById(id);
 		}		
 		
@@ -52,10 +51,12 @@ public class EnrollmentService {
 			return enrollmentRepo.save(Enrollment);
 		}	
 		
-//		public List<Course> findCoursesByStudentId(Long id) {
-//			List<Enrollment> enrollments = enrollmentRepo.findByStudentId(id).get;
-//			return courses;
-//			
-//		}
+		//find enrollments of one student
+		public List<Enrollment> findByStudent(User student) {
+			List<Enrollment> enrollments = enrollmentRepo.findByStudent(student);
+			return enrollments;			
+		}
+		
+		//
 
 };
