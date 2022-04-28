@@ -48,7 +48,6 @@
 							<td><p> <c:out value = "${i.price }"></c:out></p></td>					
 							<td><p> <c:out value = "${i.required }"></c:out></p></td>							
 							<td>
-								<a class = "btn btn-success" href="/addCourse/${i.id}">Join</a> 
 							</td>							
 						</tr>
 					</c:forEach>

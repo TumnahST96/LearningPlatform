@@ -57,8 +57,8 @@ public class CourseService {
 		}	
 		
 		//find all of one teacher's courses
-		public List<Course> findTechersCourses(Long id) {
-			return courseRepo.findAllByTeacherId(id);			
+		public List<Course> findTechersCourses(User teacher) {
+			return courseRepo.findByTeacher(teacher);			
 		}
 
 };

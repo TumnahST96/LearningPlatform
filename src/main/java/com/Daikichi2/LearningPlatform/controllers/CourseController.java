@@ -60,14 +60,14 @@ public class CourseController {
 		
 //		//System.out.println(user.getCourses());
 		if(user.getRole().equals("teacher")) {
-		List<Course> myCourses = (List<Course>)user.getCourses();
+		List<Course> myCourses = (List<Course>)courseService.findTechersCourses(user);
 		System.out.println("if");
 		model.addAttribute("myCourses", myCourses);
 	}
-//		if(user.getRole() == "student") {
-//			List<Course> myCourses =(List<Course>) user.getEnrolledCourses();
-//			model.addAttribute("myCourses", myCourses);
-//		}
+		if(user.getRole().equals("student")) {
+			List<Course> myCourses =(List<Course>) user.getEnrolledCourses();
+			model.addAttribute("myCourses", myCourses);
+		}
 		return "myCourses";
 	}
 	

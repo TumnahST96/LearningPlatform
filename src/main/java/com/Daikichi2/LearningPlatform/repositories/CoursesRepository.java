@@ -13,5 +13,5 @@ public interface CoursesRepository extends CrudRepository<Course, Long>{
 	
 	List<Course>findAll();
 	List<Course> findAllByTeacherId(Long id);
-
+	List<Course> findByTeacher(User teacher);
 }
